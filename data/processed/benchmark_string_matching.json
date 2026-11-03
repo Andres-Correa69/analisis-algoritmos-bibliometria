@@ -1,0 +1,921 @@
+{
+ "meta": {
+  "python": "3.11.14",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "repeats": 5,
+  "seed": 2026,
+  "corpus_chars": 28263,
+  "seconds": 23.5,
+  "quick": false
+ },
+ "pattern_length": [
+  {
+   "m": 2,
+   "n": 113052,
+   "patterns": [
+    "r ",
+    "er",
+    "ll",
+    "re",
+    "ge"
+   ],
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 18241.5084,
+    "total_us": 18241.5084,
+    "comparisons": 118931.8,
+    "spurious_hits": 0,
+    "occurrences": 838.4
+   },
+   "kmp": {
+    "preprocessing_us": 0.9249999999999999,
+    "search_us": 27048.1166,
+    "total_us": 27049.0416,
+    "comparisons": 118094.4,
+    "spurious_hits": 0,
+    "occurrences": 838.4
+   },
+   "boyer_moore": {
+    "preprocessing_us": 1.6084,
+    "search_us": 25305.1914,
+    "total_us": 25306.7998,
+    "comparisons": 63258,
+    "spurious_hits": 0,
+    "occurrences": 838.4
+   },
+   "rabin_karp": {
+    "preprocessing_us": 0.6416000000000001,
+    "search_us": 36255.3666,
+    "total_us": 36256.008200000004,
+    "comparisons": 1676.8,
+    "spurious_hits": 0,
+    "occurrences": 838.4
+   }
+  },
+  {
+   "m": 4,
+   "n": 113052,
+   "patterns": [
+    " eth",
+    "d de",
+    "verv",
+    "harn",
+    "rite"
+   ],
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 18586.4164,
+    "total_us": 18586.4164,
+    "comparisons": 119926.6,
+    "spurious_hits": 0,
+    "occurrences": 22.4
+   },
+   "kmp": {
+    "preprocessing_us": 0.8586,
+    "search_us": 26724.0498,
+    "total_us": 26724.9084,
+    "comparisons": 119024,
+    "spurious_hits": 0,
+    "occurrences": 22.4
+   },
+   "boyer_moore": {
+    "preprocessing_us": 1.4416,
+    "search_us": 13277.8416,
+    "total_us": 13279.2832,
+    "comparisons": 33862,
+    "spurious_hits": 0,
+    "occurrences": 22.4
+   },
+   "rabin_karp": {
+    "preprocessing_us": 0.8916000000000001,
+    "search_us": 39255.5334,
+    "total_us": 39256.425,
+    "comparisons": 89.6,
+    "spurious_hits": 0,
+    "occurrences": 22.4
+   }
+  },
+  {
+   "m": 8,
+   "n": 113052,
+   "patterns": [
+    " challen",
+    "es both ",
+    ", how it",
+    "estigate",
+    "mong ind"
+   ],
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 19112.4332,
+    "total_us": 19112.4332,
+    "comparisons": 122825,
+    "spurious_hits": 0,
+    "occurrences": 12
+   },
+   "kmp": {
+    "preprocessing_us": 1.1498,
+    "search_us": 27537.1836,
+    "total_us": 27538.3334,
+    "comparisons": 121584,
+    "spurious_hits": 0,
+    "occurrences": 12
+   },
+   "boyer_moore": {
+    "preprocessing_us": 1.7332,
+    "search_us": 7562.2248,
+    "total_us": 7563.958,
+    "comparisons": 19427.2,
+    "spurious_hits": 0,
+    "occurrences": 12
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.183,
+    "search_us": 40028.9586,
+    "total_us": 40030.1416,
+    "comparisons": 96,
+    "spurious_hits": 0,
+    "occurrences": 12
+   }
+  },
+  {
+   "m": 16,
+   "n": 113052,
+   "patterns": [
+    "ience and stem, ",
+    ", revolutionizin",
+    "n november 2022 ",
+    "ndings provide a",
+    "r full conferenc"
+   ],
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 18805.0334,
+    "total_us": 18805.0334,
+    "comparisons": 120277.6,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "kmp": {
+    "preprocessing_us": 1.3084,
+    "search_us": 26883.083,
+    "total_us": 26884.3914,
+    "comparisons": 119111.2,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "boyer_moore": {
+    "preprocessing_us": 2.4502,
+    "search_us": 4444.0668000000005,
+    "total_us": 4446.517,
+    "comparisons": 11647.2,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.825,
+    "search_us": 40088.7498,
+    "total_us": 40090.5748,
+    "comparisons": 64,
+    "spurious_hits": 0,
+    "occurrences": 4
+   }
+  },
+  {
+   "m": 32,
+   "n": 113052,
+   "patterns": [
+    "g the need for transparent gai m",
+    "rested in the intersection of ga",
+    "sing the complexities of ai in i",
+    "hat assessment should be transfo",
+    "light the significance and neces"
+   ],
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 18535.1082,
+    "total_us": 18535.1082,
+    "comparisons": 118521.8,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "kmp": {
+    "preprocessing_us": 2.2998,
+    "search_us": 26470.0586,
+    "total_us": 26472.3584,
+    "comparisons": 117405.6,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "boyer_moore": {
+    "preprocessing_us": 4.275,
+    "search_us": 3413.5582,
+    "total_us": 3417.8332,
+    "comparisons": 8725.2,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "rabin_karp": {
+    "preprocessing_us": 2.8502,
+    "search_us": 40177.7498,
+    "total_us": 40180.6,
+    "comparisons": 128,
+    "spurious_hits": 0,
+    "occurrences": 4
+   }
+  },
+  {
+   "m": 64,
+   "n": 113052,
+   "patterns": [
+    "veryday life, improving the ai skills of non-experts is importan",
+    "i for teaching and learning in he. to this end, this study condu",
+    "xt. the review found studies from six continents, with the major",
+    "aper is to advance knowledge about the role of artificial intell",
+    "nd-users, especially students, to delineate the balance between "
+   ],
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 18641.9248,
+    "total_us": 18641.9248,
+    "comparisons": 118961.6,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "kmp": {
+    "preprocessing_us": 3.1998,
+    "search_us": 26564.2582,
+    "total_us": 26567.458,
+    "comparisons": 118196,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "boyer_moore": {
+    "preprocessing_us": 7.4332,
+    "search_us": 2328.2834,
+    "total_us": 2335.7166,
+    "comparisons": 6260.4,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "rabin_karp": {
+    "preprocessing_us": 4.9418,
+    "search_us": 40131.4998,
+    "total_us": 40136.4416,
+    "comparisons": 256,
+    "spurious_hits": 0,
+    "occurrences": 4
+   }
+  },
+  {
+   "m": 128,
+   "n": 113052,
+   "patterns": [
+    " of chatgpt on the educational environment. according to various international reports, artificial intelligence in education (ai",
+    "e threats, dangers, and benefits of ai. effective educational programs are key to empower learners' understanding of ai, thus he",
+    "and digital literacy should be provided, (ii) teachers' beliefs about human and ai assessment should be strengthened, and (iii) ",
+    " ai (i.e., ai literacy) to be able to interact effectively with the technology. to evaluate the current state of the literature ",
+    "and student education are also essential to respond to the impact of chatgpt on the educational environment. according to variou"
+   ],
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 20257.0,
+    "total_us": 20257.0,
+    "comparisons": 128478.4,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "kmp": {
+    "preprocessing_us": 6.7418,
+    "search_us": 28477.7748,
+    "total_us": 28484.5166,
+    "comparisons": 125034.4,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "boyer_moore": {
+    "preprocessing_us": 14.5752,
+    "search_us": 1806.45,
+    "total_us": 1821.0252,
+    "comparisons": 5228.6,
+    "spurious_hits": 0,
+    "occurrences": 4
+   },
+   "rabin_karp": {
+    "preprocessing_us": 9.4334,
+    "search_us": 40256.425,
+    "total_us": 40265.8584,
+    "comparisons": 512,
+    "spurious_hits": 0,
+    "occurrences": 4
+   }
+  }
+ ],
+ "text_length": [
+  {
+   "factor": 1,
+   "n": 28263,
+   "m": 12,
+   "pattern": "intelligence",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 4992.916,
+    "total_us": 4992.916,
+    "comparisons": 31267,
+    "spurious_hits": 0,
+    "occurrences": 23
+   },
+   "kmp": {
+    "preprocessing_us": 0.792,
+    "search_us": 6869.875,
+    "total_us": 6870.667,
+    "comparisons": 30386,
+    "spurious_hits": 0,
+    "occurrences": 23
+   },
+   "boyer_moore": {
+    "preprocessing_us": 2.0,
+    "search_us": 1284.334,
+    "total_us": 1286.334,
+    "comparisons": 3517,
+    "spurious_hits": 0,
+    "occurrences": 23
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.416,
+    "search_us": 9941.709,
+    "total_us": 9943.125,
+    "comparisons": 276,
+    "spurious_hits": 0,
+    "occurrences": 23
+   }
+  },
+  {
+   "factor": 2,
+   "n": 56526,
+   "m": 12,
+   "pattern": "intelligence",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 9856.375,
+    "total_us": 9856.375,
+    "comparisons": 62546,
+    "spurious_hits": 0,
+    "occurrences": 46
+   },
+   "kmp": {
+    "preprocessing_us": 1.542,
+    "search_us": 13694.625,
+    "total_us": 13696.167,
+    "comparisons": 60772,
+    "spurious_hits": 0,
+    "occurrences": 46
+   },
+   "boyer_moore": {
+    "preprocessing_us": 2.041,
+    "search_us": 2580.791,
+    "total_us": 2582.832,
+    "comparisons": 7037,
+    "spurious_hits": 0,
+    "occurrences": 46
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.5,
+    "search_us": 20031.042,
+    "total_us": 20032.542,
+    "comparisons": 552,
+    "spurious_hits": 0,
+    "occurrences": 46
+   }
+  },
+  {
+   "factor": 4,
+   "n": 113052,
+   "m": 12,
+   "pattern": "intelligence",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 19730.25,
+    "total_us": 19730.25,
+    "comparisons": 125104,
+    "spurious_hits": 0,
+    "occurrences": 92
+   },
+   "kmp": {
+    "preprocessing_us": 1.625,
+    "search_us": 27605.667,
+    "total_us": 27607.292,
+    "comparisons": 121544,
+    "spurious_hits": 0,
+    "occurrences": 92
+   },
+   "boyer_moore": {
+    "preprocessing_us": 2.417,
+    "search_us": 5135.666,
+    "total_us": 5138.083,
+    "comparisons": 14077,
+    "spurious_hits": 0,
+    "occurrences": 92
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.5,
+    "search_us": 40058.291,
+    "total_us": 40059.791,
+    "comparisons": 1104,
+    "spurious_hits": 0,
+    "occurrences": 92
+   }
+  },
+  {
+   "factor": 8,
+   "n": 226104,
+   "m": 12,
+   "pattern": "intelligence",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 39507.541,
+    "total_us": 39507.541,
+    "comparisons": 250220,
+    "spurious_hits": 0,
+    "occurrences": 184
+   },
+   "kmp": {
+    "preprocessing_us": 1.5,
+    "search_us": 55179.25,
+    "total_us": 55180.75,
+    "comparisons": 243088,
+    "spurious_hits": 0,
+    "occurrences": 184
+   },
+   "boyer_moore": {
+    "preprocessing_us": 2.25,
+    "search_us": 10320.375,
+    "total_us": 10322.625,
+    "comparisons": 28157,
+    "spurious_hits": 0,
+    "occurrences": 184
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.875,
+    "search_us": 80770.291,
+    "total_us": 80772.166,
+    "comparisons": 2208,
+    "spurious_hits": 0,
+    "occurrences": 184
+   }
+  },
+  {
+   "factor": 16,
+   "n": 452208,
+   "m": 12,
+   "pattern": "intelligence",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 78931.125,
+    "total_us": 78931.125,
+    "comparisons": 500452,
+    "spurious_hits": 0,
+    "occurrences": 368
+   },
+   "kmp": {
+    "preprocessing_us": 1.958,
+    "search_us": 110613.333,
+    "total_us": 110615.291,
+    "comparisons": 486176,
+    "spurious_hits": 0,
+    "occurrences": 368
+   },
+   "boyer_moore": {
+    "preprocessing_us": 2.917,
+    "search_us": 20729.375,
+    "total_us": 20732.292,
+    "comparisons": 56317,
+    "spurious_hits": 0,
+    "occurrences": 368
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.875,
+    "search_us": 160651.417,
+    "total_us": 160653.292,
+    "comparisons": 4416,
+    "spurious_hits": 0,
+    "occurrences": 368
+   }
+  }
+ ],
+ "worst_case": [
+  {
+   "m": 5,
+   "n": 20000,
+   "case": "sin_ocurrencias",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 14597.084,
+    "total_us": 14597.084,
+    "comparisons": 99980,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "kmp": {
+    "preprocessing_us": 1.229,
+    "search_us": 9183.479,
+    "total_us": 9184.708,
+    "comparisons": 39996,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "boyer_moore": {
+    "preprocessing_us": 1.7915,
+    "search_us": 7974.9165,
+    "total_us": 7976.708,
+    "comparisons": 19996,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "rabin_karp": {
+    "preprocessing_us": 0.9375,
+    "search_us": 7187.583,
+    "total_us": 7188.5205,
+    "comparisons": 0,
+    "spurious_hits": 0,
+    "occurrences": 0
+   }
+  },
+  {
+   "m": 5,
+   "n": 20000,
+   "case": "todas_las_posiciones",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 16057.9165,
+    "total_us": 16057.9165,
+    "comparisons": 99980,
+    "spurious_hits": 0,
+    "occurrences": 19996
+   },
+   "kmp": {
+    "preprocessing_us": 0.7085,
+    "search_us": 9406.437,
+    "total_us": 9407.1455,
+    "comparisons": 20000,
+    "spurious_hits": 0,
+    "occurrences": 19996
+   },
+   "boyer_moore": {
+    "preprocessing_us": 2.396,
+    "search_us": 19958.187,
+    "total_us": 19960.583,
+    "comparisons": 99980,
+    "spurious_hits": 0,
+    "occurrences": 19996
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.021,
+    "search_us": 13593.917,
+    "total_us": 13594.938,
+    "comparisons": 99980,
+    "spurious_hits": 0,
+    "occurrences": 19996
+   }
+  },
+  {
+   "m": 10,
+   "n": 20000,
+   "case": "sin_ocurrencias",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 28355.396,
+    "total_us": 28355.396,
+    "comparisons": 199910,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "kmp": {
+    "preprocessing_us": 1.896,
+    "search_us": 9346.437,
+    "total_us": 9348.333,
+    "comparisons": 39991,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "boyer_moore": {
+    "preprocessing_us": 3.0005,
+    "search_us": 8151.1245,
+    "total_us": 8154.125,
+    "comparisons": 19991,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.542,
+    "search_us": 7201.5625,
+    "total_us": 7203.1045,
+    "comparisons": 0,
+    "spurious_hits": 0,
+    "occurrences": 0
+   }
+  },
+  {
+   "m": 10,
+   "n": 20000,
+   "case": "todas_las_posiciones",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 31256.083,
+    "total_us": 31256.083,
+    "comparisons": 199910,
+    "spurious_hits": 0,
+    "occurrences": 19991
+   },
+   "kmp": {
+    "preprocessing_us": 1.1875,
+    "search_us": 9443.4995,
+    "total_us": 9444.687,
+    "comparisons": 20000,
+    "spurious_hits": 0,
+    "occurrences": 19991
+   },
+   "boyer_moore": {
+    "preprocessing_us": 2.7915,
+    "search_us": 35001.979,
+    "total_us": 35004.7705,
+    "comparisons": 199910,
+    "spurious_hits": 0,
+    "occurrences": 19991
+   },
+   "rabin_karp": {
+    "preprocessing_us": 1.875,
+    "search_us": 17840.021,
+    "total_us": 17841.896,
+    "comparisons": 199910,
+    "spurious_hits": 0,
+    "occurrences": 19991
+   }
+  },
+  {
+   "m": 20,
+   "n": 20000,
+   "case": "sin_ocurrencias",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 55511.979,
+    "total_us": 55511.979,
+    "comparisons": 399620,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "kmp": {
+    "preprocessing_us": 3.875,
+    "search_us": 9319.813,
+    "total_us": 9323.688,
+    "comparisons": 39981,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "boyer_moore": {
+    "preprocessing_us": 5.0415,
+    "search_us": 8044.9375,
+    "total_us": 8049.979,
+    "comparisons": 19981,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "rabin_karp": {
+    "preprocessing_us": 2.229,
+    "search_us": 7043.521,
+    "total_us": 7045.75,
+    "comparisons": 0,
+    "spurious_hits": 0,
+    "occurrences": 0
+   }
+  },
+  {
+   "m": 20,
+   "n": 20000,
+   "case": "todas_las_posiciones",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 59626.083,
+    "total_us": 59626.083,
+    "comparisons": 399620,
+    "spurious_hits": 0,
+    "occurrences": 19981
+   },
+   "kmp": {
+    "preprocessing_us": 2.146,
+    "search_us": 9523.5,
+    "total_us": 9525.646,
+    "comparisons": 20000,
+    "spurious_hits": 0,
+    "occurrences": 19981
+   },
+   "boyer_moore": {
+    "preprocessing_us": 4.0205,
+    "search_us": 63875.6255,
+    "total_us": 63879.646,
+    "comparisons": 399620,
+    "spurious_hits": 0,
+    "occurrences": 19981
+   },
+   "rabin_karp": {
+    "preprocessing_us": 2.125,
+    "search_us": 26301.417,
+    "total_us": 26303.542,
+    "comparisons": 399620,
+    "spurious_hits": 0,
+    "occurrences": 19981
+   }
+  },
+  {
+   "m": 40,
+   "n": 20000,
+   "case": "sin_ocurrencias",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 108290.2705,
+    "total_us": 108290.2705,
+    "comparisons": 798440,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "kmp": {
+    "preprocessing_us": 4.7705,
+    "search_us": 9304.5835,
+    "total_us": 9309.354,
+    "comparisons": 39961,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "boyer_moore": {
+    "preprocessing_us": 6.104,
+    "search_us": 8050.4375,
+    "total_us": 8056.5415,
+    "comparisons": 19961,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "rabin_karp": {
+    "preprocessing_us": 3.6255,
+    "search_us": 7110.0625,
+    "total_us": 7113.688,
+    "comparisons": 0,
+    "spurious_hits": 0,
+    "occurrences": 0
+   }
+  },
+  {
+   "m": 40,
+   "n": 20000,
+   "case": "todas_las_posiciones",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 115957.5,
+    "total_us": 115957.5,
+    "comparisons": 798440,
+    "spurious_hits": 0,
+    "occurrences": 19961
+   },
+   "kmp": {
+    "preprocessing_us": 2.9165,
+    "search_us": 9535.1455,
+    "total_us": 9538.062,
+    "comparisons": 20000,
+    "spurious_hits": 0,
+    "occurrences": 19961
+   },
+   "boyer_moore": {
+    "preprocessing_us": 5.396,
+    "search_us": 121161.833,
+    "total_us": 121167.229,
+    "comparisons": 798440,
+    "spurious_hits": 0,
+    "occurrences": 19961
+   },
+   "rabin_karp": {
+    "preprocessing_us": 3.5835,
+    "search_us": 42039.271,
+    "total_us": 42042.8545,
+    "comparisons": 798440,
+    "spurious_hits": 0,
+    "occurrences": 19961
+   }
+  },
+  {
+   "m": 80,
+   "n": 20000,
+   "case": "sin_ocurrencias",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 216661.9375,
+    "total_us": 216661.9375,
+    "comparisons": 1593680,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "kmp": {
+    "preprocessing_us": 10.9375,
+    "search_us": 9245.729,
+    "total_us": 9256.6665,
+    "comparisons": 39921,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "boyer_moore": {
+    "preprocessing_us": 9.8125,
+    "search_us": 7946.3955,
+    "total_us": 7956.208,
+    "comparisons": 19921,
+    "spurious_hits": 0,
+    "occurrences": 0
+   },
+   "rabin_karp": {
+    "preprocessing_us": 6.125,
+    "search_us": 7144.458,
+    "total_us": 7150.583,
+    "comparisons": 0,
+    "spurious_hits": 0,
+    "occurrences": 0
+   }
+  },
+  {
+   "m": 80,
+   "n": 20000,
+   "case": "todas_las_posiciones",
+   "naive": {
+    "preprocessing_us": 0.0,
+    "search_us": 229692.4585,
+    "total_us": 229692.4585,
+    "comparisons": 1593680,
+    "spurious_hits": 0,
+    "occurrences": 19921
+   },
+   "kmp": {
+    "preprocessing_us": 5.958,
+    "search_us": 9615.6875,
+    "total_us": 9621.6455,
+    "comparisons": 20000,
+    "spurious_hits": 0,
+    "occurrences": 19921
+   },
+   "boyer_moore": {
+    "preprocessing_us": 9.0625,
+    "search_us": 234614.4585,
+    "total_us": 234623.521,
+    "comparisons": 1593680,
+    "spurious_hits": 0,
+    "occurrences": 19921
+   },
+   "rabin_karp": {
+    "preprocessing_us": 6.4165,
+    "search_us": 74213.812,
+    "total_us": 74220.2285,
+    "comparisons": 1593680,
+    "spurious_hits": 0,
+    "occurrences": 19921
+   }
+  }
+ ],
+ "rabin_karp_collisions": [
+  {
+   "modulus": 13,
+   "hash_hits": 2206,
+   "spurious_hits": 2166,
+   "occurrences": 40,
+   "comparisons": 2551,
+   "search_us": 9300.208
+  },
+  {
+   "modulus": 101,
+   "hash_hits": 320,
+   "spurious_hits": 280,
+   "occurrences": 40,
+   "comparisons": 607,
+   "search_us": 9153.25
+  },
+  {
+   "modulus": 997,
+   "hash_hits": 64,
+   "spurious_hits": 24,
+   "occurrences": 40,
+   "comparisons": 344,
+   "search_us": 9247.667
+  },
+  {
+   "modulus": 10007,
+   "hash_hits": 41,
+   "spurious_hits": 1,
+   "occurrences": 40,
+   "comparisons": 321,
+   "search_us": 9113.291
+  },
+  {
+   "modulus": 1000000007,
+   "hash_hits": 40,
+   "spurious_hits": 0,
+   "occurrences": 40,
+   "comparisons": 320,
+   "search_us": 9913.75
+  }
+ ]
+}

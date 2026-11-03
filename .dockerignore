@@ -1,0 +1,20 @@
+.git
+.env
+.venv
+**/__pycache__
+.pytest_cache
+.hypothesis
+.ruff_cache
+.DS_Store
+frontend/node_modules
+frontend/dist
+frontend/test-results
+frontend/playwright-report
+informe
+scripts/generate_report_assets.py
+Articulos Proyecto Algoritmos
+Articulos Proyecto Algoritmos.zip
+Proyecto Análisis de Algoritmos - 2026-2.pdf
+outputs
+tests
+*.zip

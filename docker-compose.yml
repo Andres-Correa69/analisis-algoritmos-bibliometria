@@ -1,0 +1,35 @@
+# Uso local (sólo la app en http://localhost:8000):
+#     docker compose up -d --build
+#
+# Producción en el servidor (OVHcloud) con dominio propio y HTTPS automático:
+#     cp .env.example .env        # y escribir el dominio en DOMAIN
+#     docker compose --profile produccion up -d --build
+services:
+  app:
+    build: .
+    image: bibliometria:latest
+    restart: unless-stopped
+    # Sólo escucha en la máquina local; en producción el tráfico público entra por Caddy.
+    ports:
+      - "127.0.0.1:${APP_PORT:-8000}:8000"
+
+  caddy:
+    image: caddy:2-alpine
+    profiles: ["produccion"]
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:-localhost}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
