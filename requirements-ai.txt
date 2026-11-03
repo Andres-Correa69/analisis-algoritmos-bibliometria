@@ -1,0 +1,4 @@
+# Opcional: regenerar los embeddings de los modelos de IA
+# (python scripts/build_embeddings.py). No se necesita para ejecutar la app.
+-r requirements.txt
+sentence-transformers>=3.0
