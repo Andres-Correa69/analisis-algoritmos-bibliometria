@@ -1,0 +1,6 @@
+# Dependencias de ejecución (aplicación web, API y consola)
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30
+pydantic>=2.7,<3
+pymupdf>=1.24,<2       # lectura de líneas de texto y posiciones de los PDF (extracción)
+matplotlib>=3.8        # dendrogramas/figuras PNG generadas desde la consola

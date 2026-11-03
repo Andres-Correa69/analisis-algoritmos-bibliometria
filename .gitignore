@@ -1,0 +1,39 @@
+# ---------------------------------------------------------------
+# Al repositorio va todo el proyecto: la aplicación (código, datos,
+# pruebas, despliegue) y el informe final en PDF, que la app ofrece
+# para descarga en /informe.pdf. NO se sube lo usado para generar
+# el informe (fuentes LaTeX, tablas/figuras generadas y su script).
+# ---------------------------------------------------------------
+
+# Generación del informe
+informe/
+scripts/generate_report_assets.py
+
+# Material entregado por el docente (los PDF que usa la app están en data/raw/articulos)
+Articulos Proyecto Algoritmos/
+Articulos Proyecto Algoritmos.zip
+Proyecto Análisis de Algoritmos - 2026-2.pdf
+
+# Salidas generadas por la consola (se regeneran con python main.py)
+outputs/
+
+# Configuración local del despliegue
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.hypothesis/
+.ruff_cache/
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+
+# Sistema
+.DS_Store
