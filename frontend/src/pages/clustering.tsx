@@ -1,6 +1,6 @@
 import { Trophy } from "lucide-react"
 import { useMemo, useState } from "react"
-import { Bar, BarChart, CartesianGrid, Cell, LabelList, Line, LineChart, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, LabelList, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import { cutGroups, Dendrogram } from "@/components/dendrogram"
 import { ErrorAlert, Legend, Loading, PageHeader, Tex } from "@/components/common"
@@ -15,7 +15,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { api } from "@/lib/api"
 import { useCorpus } from "@/lib/corpus-context"
 import { fmt } from "@/lib/format"
-import { ALGORITHM_COLOR, SERIES } from "@/lib/palette"
+import { ALGORITHM_COLOR, PRIMARY, clusterColor } from "@/lib/palette"
 import type { ClusteringResponse, MethodResult } from "@/lib/types"
 import { useAsync } from "@/lib/use-async"
 
@@ -132,7 +132,7 @@ function ClusteringBody({ data, method, k }: { data: ClusteringResponse; method:
             {groups.map(([g, ids]) => (
               <div key={g} className="rounded-lg border p-3">
                 <p className="mb-2 flex items-center gap-2 text-sm font-medium">
-                  <span className="size-2.5 rounded-full" style={{ background: SERIES[g % SERIES.length] }} />
+                  <span className="size-2.5 rounded-[2px]" style={{ background: clusterColor(g) }} />
                   Grupo {g + 1} · {ids.length} {ids.length === 1 ? "artículo" : "artículos"}
                 </p>
                 <ul className="space-y-1 text-xs text-muted-foreground">
@@ -239,10 +239,7 @@ function CpccChart({ data }: { data: ClusteringResponse }) {
         <XAxis type="number" domain={[0, 1]} hide />
         <YAxis type="category" dataKey="method" width={70} tickLine={false} axisLine={false} fontSize={12} />
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideIndicator />} />
-        <Bar dataKey="value" radius={[0, 4, 4, 0]} maxBarSize={16}>
-          {rows.map((r) => (
-            <Cell key={r.key} fill={ALGORITHM_COLOR[r.key]} />
-          ))}
+        <Bar dataKey="value" fill={PRIMARY} radius={[0, 2, 2, 0]} maxBarSize={16}>
           <LabelList dataKey="value" position="right" formatter={(v: unknown) => Number(v).toFixed(3)} fontSize={11} className="fill-foreground" />
         </Bar>
       </BarChart>

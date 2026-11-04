@@ -11,10 +11,11 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { useCorpus } from "@/lib/corpus-context"
 import { authorsShort } from "@/lib/format"
+import { PRIMARY } from "@/lib/palette"
 import type { Article } from "@/lib/types"
 
-const lengthConfig = { words: { label: "Palabras del abstract", color: "var(--series-1)" } } satisfies ChartConfig
-const yearConfig = { count: { label: "Artículos", color: "var(--series-1)" } } satisfies ChartConfig
+const lengthConfig = { words: { label: "Palabras del abstract", color: PRIMARY } } satisfies ChartConfig
+const yearConfig = { count: { label: "Artículos", color: PRIMARY } } satisfies ChartConfig
 
 export default function HomePage() {
   const { articles, loading, error } = useCorpus()
@@ -75,7 +76,7 @@ export default function HomePage() {
                 <XAxis dataKey="code" tickLine={false} axisLine={false} fontSize={11} interval={0} angle={-45} textAnchor="end" height={44} />
                 <YAxis tickLine={false} axisLine={false} fontSize={11} />
                 <ChartTooltip cursor={false} content={<ChartTooltipContent labelFormatter={(l) => `Artículo ${l}`} />} />
-                <Bar dataKey="words" fill="var(--color-words)" radius={[4, 4, 0, 0]} maxBarSize={24} />
+                <Bar dataKey="words" fill="var(--color-words)" radius={[2, 2, 0, 0]} maxBarSize={24} />
               </BarChart>
             </ChartContainer>
           </CardContent>
@@ -92,7 +93,7 @@ export default function HomePage() {
                 <XAxis dataKey="year" tickLine={false} axisLine={false} fontSize={11} />
                 <YAxis allowDecimals={false} tickLine={false} axisLine={false} fontSize={11} />
                 <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-                <Bar dataKey="count" fill="var(--color-count)" radius={[4, 4, 0, 0]} maxBarSize={24} />
+                <Bar dataKey="count" fill="var(--color-count)" radius={[2, 2, 0, 0]} maxBarSize={24} />
               </BarChart>
             </ChartContainer>
           </CardContent>

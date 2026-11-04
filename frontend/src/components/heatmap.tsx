@@ -120,7 +120,7 @@ function ScaleLegend({ lo, hi, dark }: { lo: number; hi: number; dark: boolean }
   return (
     <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
       <span className="tabular">{lo.toFixed(2)}</span>
-      <div className="h-2 w-40 rounded-full" style={{ background: `linear-gradient(90deg, ${stops.join(",")})` }} />
+      <div className="h-2 w-40 rounded-[2px]" style={{ background: `linear-gradient(90deg, ${stops.join(",")})` }} />
       <span className="tabular">{hi.toFixed(2)}</span>
       <span>· menor → mayor similitud</span>
     </div>

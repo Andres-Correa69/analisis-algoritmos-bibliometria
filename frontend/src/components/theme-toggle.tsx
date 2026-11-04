@@ -3,13 +3,14 @@ import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
 
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme()
   const dark = resolvedTheme === "dark"
   return (
     <Button
       variant="ghost"
       size="icon"
+      className={className}
       aria-label={dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
       onClick={() => setTheme(dark ? "light" : "dark")}
     >

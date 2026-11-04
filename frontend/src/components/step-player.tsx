@@ -136,7 +136,7 @@ export function StepPlayer({ data }: { data: TraceResponse }) {
                 <span
                   key={j}
                   className={cn(
-                    "flex h-7 items-center justify-center rounded-sm border border-[var(--series-1)]/50 bg-[var(--series-1)]/10",
+                    "flex h-7 items-center justify-center rounded-sm border border-primary/50 bg-primary/10",
                     c?.match === true && "bg-[var(--match-bg)] text-[var(--match-fg)]",
                     c?.match === false && "bg-[var(--miss-bg)] text-[var(--miss-fg)]",
                   )}

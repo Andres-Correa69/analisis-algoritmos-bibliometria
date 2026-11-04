@@ -1,8 +1,15 @@
-// Paleta categórica validada (orden fijo, nunca cíclico) y rampa secuencial azul.
-// Los valores reales viven en index.css como variables CSS (--series-N) con su
-// versión para modo oscuro; aquí sólo se referencian por rol.
+// Paleta de visualización derivada de la institucional (verde Uniquindío).
+// Las gráficas de una sola serie usan sólo el verde primario; las de varias
+// series usan la paleta categórica validada (orden fijo, nunca cíclico) y los
+// mapas de calor una rampa secuencial verde. Los valores reales viven en
+// index.css como variables CSS (--series-N) con su versión para modo oscuro.
 
-export const SERIES = Array.from({ length: 8 }, (_, i) => `var(--series-${i + 1})`)
+export const PRIMARY = "var(--primary)"
+
+/** Acento ámbar: sólo para resaltar un dato (umbral, coincidencia). */
+export const ACCENT = "var(--brand-amber)"
+
+export const SERIES = Array.from({ length: 6 }, (_, i) => `var(--series-${i + 1})`)
 
 /** Color fijo por entidad: el color sigue al algoritmo, no a su posición. */
 export const ALGORITHM_COLOR: Record<string, string> = {
@@ -19,23 +26,29 @@ export const ALGORITHM_COLOR: Record<string, string> = {
   single: SERIES[0],
   complete: SERIES[1],
   average: SERIES[2],
-  ward: SERIES[6],
+  ward: SERIES[3],
 }
 
-const BLUE_RAMP = [
-  "#cde2fb",
-  "#b7d3f6",
-  "#9ec5f4",
-  "#86b6ef",
-  "#6da7ec",
-  "#5598e7",
-  "#3987e5",
-  "#2a78d6",
-  "#256abf",
-  "#1c5cab",
-  "#184f95",
-  "#104281",
-  "#0d366b",
+/** Color de un grupo del dendrograma: los 6 primeros con la paleta, el resto en gris (nunca se repite un color). */
+export function clusterColor(g: number | undefined): string {
+  return g === undefined || g < 0 || g >= SERIES.length ? "var(--muted-ink)" : SERIES[g]
+}
+
+// Rampa verde de un solo tono (OKLCH, L de 0.95 a 0.33); el paso 8 es el verde UQ.
+const GREEN_RAMP = [
+  "#e4f4dd",
+  "#cde7c2",
+  "#b5d9a7",
+  "#9ecb8d",
+  "#87bd75",
+  "#71af5d",
+  "#5ba046",
+  "#469130",
+  "#308219",
+  "#1a7300",
+  "#086300",
+  "#005300",
+  "#004400",
 ]
 
 function hexToRgb(hex: string): [number, number, number] {
@@ -46,12 +59,12 @@ function hexToRgb(hex: string): [number, number, number] {
 /** Color secuencial para t ∈ [0, 1]. En modo oscuro "más" es más claro. */
 export function sequential(t: number, dark: boolean): string {
   const x = Math.min(1, Math.max(0, Number.isFinite(t) ? t : 0))
-  const pos = (dark ? 1 - x : x) * (BLUE_RAMP.length - 1)
+  const pos = (dark ? 1 - x : x) * (GREEN_RAMP.length - 1)
   const lo = Math.floor(pos)
-  const hi = Math.min(BLUE_RAMP.length - 1, lo + 1)
+  const hi = Math.min(GREEN_RAMP.length - 1, lo + 1)
   const f = pos - lo
-  const [r1, g1, b1] = hexToRgb(BLUE_RAMP[lo])
-  const [r2, g2, b2] = hexToRgb(BLUE_RAMP[hi])
+  const [r1, g1, b1] = hexToRgb(GREEN_RAMP[lo])
+  const [r2, g2, b2] = hexToRgb(GREEN_RAMP[hi])
   const mix = (a: number, b: number) => Math.round(a + (b - a) * f)
   return `rgb(${mix(r1, r2)}, ${mix(g1, g2)}, ${mix(b1, b2)})`
 }
@@ -59,11 +72,11 @@ export function sequential(t: number, dark: boolean): string {
 /** Tinta legible (blanca o negra) sobre un color de relleno rgb(...). */
 export function inkOn(fill: string): string {
   const m = fill.match(/\d+/g)
-  if (!m) return "#0b0b0b"
+  if (!m) return "#1c231a"
   const [r, g, b] = m.map(Number).map((c) => {
     const s = c / 255
     return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4
   })
   const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
-  return lum > 0.35 ? "#0b0b0b" : "#ffffff"
+  return lum > 0.35 ? "#1c231a" : "#ffffff"
 }

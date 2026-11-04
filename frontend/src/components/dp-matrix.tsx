@@ -43,8 +43,8 @@ export function DpMatrix({ rows, cols, matrix, path = [], caption }: Props) {
                     key={j}
                     className={cn(
                       "min-w-9 border border-border/60 px-2 py-1.5 text-center",
-                      isPath && "bg-[var(--series-1)]/20 font-semibold",
-                      key === last && "ring-2 ring-[var(--series-1)] ring-inset",
+                      isPath && "bg-primary/15 font-semibold",
+                      key === last && "ring-2 ring-primary ring-inset",
                       same && !isPath && "bg-[var(--match-bg)]/50",
                     )}
                   >

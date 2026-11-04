@@ -16,9 +16,25 @@ const NAV = [
   { to: "/acerca", label: "Arquitectura y despliegue", hint: "Requerimiento 4", icon: Info },
 ]
 
+/**
+ * Franja institucional bajo el encabezado: verde UQ, verde profundo y ámbar.
+ * Bajo el menú lateral va sólo el verde, para que con la del encabezado se lea como una sola franja.
+ */
+function BrandStripe({ solid = false }: { solid?: boolean }) {
+  if (solid) return <div className="h-[3px] bg-primary" aria-hidden />
+  return (
+    <div className="flex h-[3px]" aria-hidden>
+      <span className="flex-[5] bg-primary" />
+      <span className="flex-[2] bg-[#08590c]" />
+      <span className="flex-1 bg-brand-amber" />
+    </div>
+  )
+}
+
 function NavItems({ onNavigate }: { onNavigate?: () => void }) {
   return (
-    <nav className="flex flex-col gap-1">
+    <nav className="flex flex-col gap-0.5">
+      <p className="px-3 pb-2 font-mono text-[10px] font-medium tracking-[0.14em] text-muted-foreground uppercase">Módulos</p>
       {NAV.map((item) => (
         <NavLink
           key={item.to}
@@ -27,15 +43,18 @@ function NavItems({ onNavigate }: { onNavigate?: () => void }) {
           onClick={onNavigate}
           className={({ isActive }) =>
             cn(
-              "group flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
-              isActive ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground",
+              "relative flex items-center gap-3 rounded-sm px-3 py-2 text-sm transition-colors",
+              "before:absolute before:inset-y-1 before:left-0 before:w-[3px] before:rounded-r-sm",
+              isActive
+                ? "bg-accent text-accent-foreground before:bg-primary"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground before:bg-transparent",
             )
           }
         >
           <item.icon className="size-4 shrink-0" />
           <span className="flex flex-col leading-tight">
             <span className="font-medium">{item.label}</span>
-            <span className="text-[11px] opacity-70">{item.hint}</span>
+            <span className="text-[11px] opacity-75">{item.hint}</span>
           </span>
         </NavLink>
       ))}
@@ -43,67 +62,87 @@ function NavItems({ onNavigate }: { onNavigate?: () => void }) {
   )
 }
 
-function Brand() {
+function Brand({ inverted = false }: { inverted?: boolean }) {
   return (
-    <div className="flex items-center gap-2.5 px-1">
-      <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-        <BookOpenText className="size-5" />
+    <div className="flex items-center gap-2.5">
+      <div
+        className={cn(
+          "flex size-8 items-center justify-center rounded-sm",
+          inverted ? "bg-white/12 text-white ring-1 ring-white/25" : "bg-primary text-primary-foreground",
+        )}
+      >
+        <BookOpenText className="size-4.5" />
       </div>
       <div className="leading-tight">
-        <p className="text-sm font-semibold">Bibliometría</p>
-        <p className="text-xs text-muted-foreground">Análisis de Algoritmos</p>
+        <p className={cn("text-sm font-semibold", inverted && "text-white")}>Bibliometría</p>
+        <p className={cn("text-[11px]", inverted ? "text-white/70" : "text-muted-foreground")}>Análisis de Algoritmos</p>
       </div>
     </div>
   )
 }
 
+const headerButton = "text-white/85 hover:bg-white/10 hover:text-white dark:hover:bg-white/10"
+
 export function AppShell() {
   const [open, setOpen] = useState(false)
   const { meta } = useCorpus()
   return (
-    <div className="min-h-svh bg-muted/30">
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col gap-6 border-r bg-background p-4 lg:flex">
-        <Brand />
-        <NavItems />
-        <div className="mt-auto rounded-lg border bg-muted/40 p-3 text-xs text-muted-foreground">
-          Universidad del Quindío · Ingeniería de Sistemas y Computación · 2026-2
+    <div className="min-h-svh bg-background">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r bg-sidebar lg:flex">
+        <div className="flex h-14 shrink-0 items-center bg-brand-deep px-4">
+          <Brand inverted />
+        </div>
+        <BrandStripe solid />
+        <div className="flex flex-1 flex-col p-3 pt-5">
+          <NavItems />
+          <div className="mt-auto border-t px-3 pt-3 text-[11px] leading-relaxed text-muted-foreground">
+            Universidad del Quindío
+            <br />
+            Ingeniería de Sistemas y Computación · 2026-2
+          </div>
         </div>
       </aside>
 
       <div className="lg:pl-64">
-        <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b bg-background/85 px-4 backdrop-blur md:px-6">
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Abrir menú">
-                <Menu className="size-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-72 p-4">
-              <SheetTitle className="sr-only">Navegación</SheetTitle>
-              <div className="flex flex-col gap-6 pt-2">
-                <Brand />
-                <NavItems onNavigate={() => setOpen(false)} />
-              </div>
-            </SheetContent>
-          </Sheet>
-          <p className="truncate text-sm font-medium">Análisis de algoritmos en el contexto de la bibliometría</p>
-          <div className="ml-auto flex items-center gap-1">
-            <Button variant="ghost" size="sm" asChild>
-              <a href="/docs" target="_blank" rel="noreferrer">
-                API
-              </a>
-            </Button>
-            {meta?.report_available && (
-              <Button variant="ghost" size="sm" asChild>
-                <a href="/informe.pdf" target="_blank" rel="noreferrer">
-                  Informe PDF
+        <div className="sticky top-0 z-20">
+          <header className="flex h-14 items-center gap-3 bg-brand-deep px-4 text-white md:px-6">
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className={cn("lg:hidden", headerButton)} aria-label="Abrir menú">
+                  <Menu className="size-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-72 gap-0 p-0 [&>button]:text-white [&>button:hover]:bg-white/10 [&>button:hover]:text-white">
+                <SheetTitle className="sr-only">Navegación</SheetTitle>
+                <div className="flex h-14 items-center bg-brand-deep px-4">
+                  <Brand inverted />
+                </div>
+                <BrandStripe />
+                <div className="p-3 pt-5">
+                  <NavItems onNavigate={() => setOpen(false)} />
+                </div>
+              </SheetContent>
+            </Sheet>
+            <p className="truncate text-sm font-medium tracking-tight">Análisis de algoritmos en el contexto de la bibliometría</p>
+            <div className="ml-auto flex items-center gap-1">
+              <Button variant="ghost" size="sm" className={headerButton} asChild>
+                <a href="/docs" target="_blank" rel="noreferrer">
+                  API
                 </a>
               </Button>
-            )}
-            <ThemeToggle />
-          </div>
-        </header>
-        <main className="mx-auto w-full max-w-7xl px-4 py-6 md:px-6 md:py-8">
+              {meta?.report_available && (
+                <Button variant="ghost" size="sm" className={headerButton} asChild>
+                  <a href="/informe.pdf" target="_blank" rel="noreferrer">
+                    Informe PDF
+                  </a>
+                </Button>
+              )}
+              <ThemeToggle className={headerButton} />
+            </div>
+          </header>
+          <BrandStripe />
+        </div>
+        <main className="mx-auto w-full max-w-7xl px-4 py-6 md:px-8 md:py-8">
           <Outlet />
         </main>
       </div>

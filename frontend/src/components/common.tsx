@@ -10,10 +10,10 @@ import { cn } from "@/lib/utils"
 
 export function PageHeader({ eyebrow, title, description, actions }: { eyebrow?: string; title: string; description?: ReactNode; actions?: ReactNode }) {
   return (
-    <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+    <div className="mb-6 flex flex-col gap-3 border-b pb-5 md:flex-row md:items-end md:justify-between">
       <div className="max-w-3xl space-y-1.5">
-        {eyebrow && <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{eyebrow}</p>}
-        <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">{title}</h1>
+        {eyebrow && <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-primary uppercase">{eyebrow}</p>}
+        <h1 className="text-2xl font-semibold tracking-tight md:text-[1.75rem]">{title}</h1>
         {description && <p className="text-sm text-muted-foreground md:text-base">{description}</p>}
       </div>
       {actions && <div className="flex shrink-0 gap-2">{actions}</div>}
@@ -25,8 +25,8 @@ export function StatTile({ label, value, hint }: { label: string; value: ReactNo
   return (
     <Card className="gap-1 py-4">
       <CardContent className="px-4">
-        <p className="text-xs text-muted-foreground">{label}</p>
-        <p className="mt-1 text-2xl font-semibold">{value}</p>
+        <p className="font-mono text-[10px] font-medium tracking-[0.12em] text-muted-foreground uppercase">{label}</p>
+        <p className="mt-1.5 text-2xl font-semibold tracking-tight tabular">{value}</p>
         {hint && <p className="mt-0.5 text-xs text-muted-foreground">{hint}</p>}
       </CardContent>
     </Card>
@@ -63,7 +63,7 @@ export function Legend({ items }: { items: { key: string; label: string; color: 
     <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
       {items.map((it) => (
         <span key={it.key} className="inline-flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ background: it.color }} />
+          <span className="inline-block h-2.5 w-2.5 rounded-[2px]" style={{ background: it.color }} />
           {it.label}
         </span>
       ))}

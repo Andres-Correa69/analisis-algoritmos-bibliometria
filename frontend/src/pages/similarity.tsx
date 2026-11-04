@@ -152,7 +152,7 @@ function ResultsView({ result }: { result: CompareResponse }) {
               <YAxis domain={[0, 1]} tickLine={false} axisLine={false} fontSize={11} />
               <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
               {result.algorithms.map((a) => (
-                <Bar key={a.key} dataKey={a.key} fill={`var(--color-${a.key})`} radius={[4, 4, 0, 0]} maxBarSize={20} />
+                <Bar key={a.key} dataKey={a.key} fill={`var(--color-${a.key})`} radius={[2, 2, 0, 0]} maxBarSize={20} />
               ))}
             </BarChart>
           </ChartContainer>

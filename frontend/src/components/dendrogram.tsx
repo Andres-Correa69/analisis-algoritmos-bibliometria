@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 
-import { SERIES } from "@/lib/palette"
+import { ACCENT, clusterColor } from "@/lib/palette"
 import type { MethodResult } from "@/lib/types"
 
 interface Props {
@@ -67,7 +67,7 @@ export function Dendrogram({ result, k, titles, height = 470 }: Props) {
   const sy = (y: number) => padT + plotH - (y / maxH) * plotH
   const ticks = niceTicks(maxH, 5)
   const tickX = padL - 8
-  const color = (g: number | undefined) => (g === undefined || g < 0 ? "var(--muted-ink)" : SERIES[g % SERIES.length])
+  const color = clusterColor
 
   return (
     <div className="relative w-full overflow-x-auto">
@@ -107,7 +107,7 @@ export function Dendrogram({ result, k, titles, height = 470 }: Props) {
         })}
         {k > 1 && k < n && (
           <g>
-            <line x1={padL} x2={width - 8} y1={sy(threshold)} y2={sy(threshold)} stroke="var(--series-8)" strokeWidth={1} />
+            <line x1={padL} x2={width - 8} y1={sy(threshold)} y2={sy(threshold)} stroke={ACCENT} strokeWidth={1.5} strokeDasharray="4 3" />
             <text x={width - 10} y={sy(threshold) - 4} textAnchor="end" fontSize={10} className="fill-muted-foreground">
               corte · k = {k}
             </text>
@@ -123,7 +123,7 @@ export function Dendrogram({ result, k, titles, height = 470 }: Props) {
               onMouseLeave={() => setHoverLeaf(null)}
               className="cursor-default"
             >
-              <circle cx={x} cy={sy(0)} r={4} fill={color(leafGroup[leaf])} stroke="var(--background)" strokeWidth={2} />
+              <circle cx={x} cy={sy(0)} r={4} fill={color(leafGroup[leaf])} stroke="var(--card)" strokeWidth={2} />
               <rect x={x - 10} y={sy(0) + 4} width={20} height={labelBand - 10} fill="transparent" />
               <text
                 x={x}

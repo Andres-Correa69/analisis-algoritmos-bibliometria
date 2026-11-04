@@ -10,7 +10,7 @@ const TEAM = ["Mariana Muñoz Rodriguez", "Andres Felipe Correa Valencia", "Ivan
 
 function Box({ title, items, tone = "default" }: { title: string; items: string[]; tone?: "default" | "accent" }) {
   return (
-    <div className={`rounded-lg border p-3 text-sm ${tone === "accent" ? "border-[var(--series-1)]/40 bg-[var(--series-1)]/5" : "bg-background"}`}>
+    <div className={`rounded-lg border p-3 text-sm ${tone === "accent" ? "border-primary/40 bg-accent/40" : "bg-background"}`}>
       <p className="font-medium">{title}</p>
       <ul className="mt-1 space-y-0.5 text-xs text-muted-foreground">
         {items.map((i) => (

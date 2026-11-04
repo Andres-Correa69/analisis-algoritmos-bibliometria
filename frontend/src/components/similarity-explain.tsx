@@ -1,4 +1,4 @@
-import { Bar, BarChart, CartesianGrid, Cell, LabelList, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, LabelList, XAxis, YAxis } from "recharts"
 
 import { DpMatrix } from "@/components/dp-matrix"
 import { Mono, Tex } from "@/components/common"
@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { fmt } from "@/lib/format"
-import { ALGORITHM_COLOR } from "@/lib/palette"
+import { PRIMARY } from "@/lib/palette"
 import type { ExplainResponse, VectorExplain } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
@@ -18,7 +18,7 @@ function Section({ n, title, description, children }: { n: number; title: string
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <span className="flex size-6 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">{n}</span>
+          <span className="flex size-6 items-center justify-center rounded-sm bg-primary text-xs text-primary-foreground tabular">{n}</span>
           {title}
         </CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
@@ -30,7 +30,7 @@ function Section({ n, title, description, children }: { n: number; title: string
 
 function Result({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="rounded-lg border bg-muted/40 px-3 py-2">
+    <div className="rounded-md border bg-muted/50 px-3 py-2">
       <p className="text-xs text-muted-foreground">{label}</p>
       <p className="text-lg font-semibold tabular">{value}</p>
     </div>
@@ -61,10 +61,7 @@ export function SimilarityExplain({ data }: { data: ExplainResponse }) {
               <XAxis type="number" domain={[0, 1]} tickLine={false} axisLine={false} fontSize={11} />
               <YAxis type="category" dataKey="label" width={150} tickLine={false} axisLine={false} fontSize={12} />
               <ChartTooltip cursor={false} content={<ChartTooltipContent hideIndicator />} />
-              <Bar dataKey="value" radius={[0, 4, 4, 0]} maxBarSize={22}>
-                {data.summary.map((s) => (
-                  <Cell key={s.key} fill={ALGORITHM_COLOR[s.key]} />
-                ))}
+              <Bar dataKey="value" fill={PRIMARY} radius={[0, 2, 2, 0]} maxBarSize={22}>
                 <LabelList dataKey="value" position="right" formatter={(v: unknown) => Number(v).toFixed(3)} className="fill-foreground" fontSize={11} />
               </Bar>
             </BarChart>

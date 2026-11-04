@@ -1,6 +1,6 @@
 import { CheckCircle2, Search as SearchIcon } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
-import { Bar, BarChart, CartesianGrid, Cell, LabelList, Line, LineChart, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, LabelList, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import { ErrorAlert, Legend, Loading, Mono, PageHeader, Tex } from "@/components/common"
 import { StepPlayer } from "@/components/step-player"
@@ -19,7 +19,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { api } from "@/lib/api"
 import { useCorpus } from "@/lib/corpus-context"
 import { authorsShort, fmtInt, fmtNs, fmtUs } from "@/lib/format"
-import { ALGORITHM_COLOR } from "@/lib/palette"
+import { ALGORITHM_COLOR, PRIMARY } from "@/lib/palette"
 import type { BenchMeasure, BenchmarkResponse, SearchResponse, TraceResponse } from "@/lib/types"
 import { useAsync } from "@/lib/use-async"
 
@@ -136,7 +136,7 @@ function CorpusSearch() {
 }
 
 function SearchResults({ result }: { result: SearchResponse }) {
-  const timeConfig = { pre: { label: "Preprocesamiento", color: "var(--series-7)" }, search: { label: "Búsqueda", color: "var(--series-1)" } } satisfies ChartConfig
+  const timeConfig = { pre: { label: "Preprocesamiento", color: "var(--series-2)" }, search: { label: "Búsqueda", color: "var(--series-1)" } } satisfies ChartConfig
   const timeRows = ALGS.map((a) => ({ alg: ALG_LABEL[a], pre: result.totals[a].preprocessing_ns / 1000, search: result.totals[a].search_ns / 1000 }))
   const cmpRows = ALGS.map((a) => ({ key: a, alg: ALG_LABEL[a], value: result.totals[a].comparisons }))
   return (
@@ -160,7 +160,7 @@ function SearchResults({ result }: { result: SearchResponse }) {
             <CardDescription>Suma sobre todos los campos recorridos (µs). El preprocesamiento depende sólo de m.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Legend items={[{ key: "pre", label: "Preprocesamiento", color: "var(--series-7)" }, { key: "s", label: "Búsqueda", color: "var(--series-1)" }]} />
+            <Legend items={[{ key: "pre", label: "Preprocesamiento", color: "var(--series-2)" }, { key: "s", label: "Búsqueda", color: "var(--series-1)" }]} />
             <ChartContainer config={timeConfig} className="aspect-auto h-48 w-full">
               <BarChart data={timeRows} layout="vertical" margin={{ left: 16, right: 24 }}>
                 <CartesianGrid horizontal={false} />
@@ -168,7 +168,7 @@ function SearchResults({ result }: { result: SearchResponse }) {
                 <YAxis type="category" dataKey="alg" width={90} tickLine={false} axisLine={false} fontSize={12} />
                 <ChartTooltip cursor={false} content={<ChartTooltipContent formatter={(v, n) => `${n === "pre" ? "Preproc." : "Búsqueda"}: ${Number(v).toFixed(1)} µs`} />} />
                 <Bar dataKey="pre" stackId="t" fill="var(--color-pre)" maxBarSize={22} />
-                <Bar dataKey="search" stackId="t" fill="var(--color-search)" radius={[0, 4, 4, 0]} maxBarSize={22} />
+                <Bar dataKey="search" stackId="t" fill="var(--color-search)" radius={[0, 2, 2, 0]} maxBarSize={22} />
               </BarChart>
             </ChartContainer>
           </CardContent>
@@ -185,10 +185,7 @@ function SearchResults({ result }: { result: SearchResponse }) {
                 <XAxis type="number" tickLine={false} axisLine={false} fontSize={11} />
                 <YAxis type="category" dataKey="alg" width={90} tickLine={false} axisLine={false} fontSize={12} />
                 <ChartTooltip cursor={false} content={<ChartTooltipContent hideIndicator />} />
-                <Bar dataKey="value" radius={[0, 4, 4, 0]} maxBarSize={22}>
-                  {cmpRows.map((r) => (
-                    <Cell key={r.key} fill={ALGORITHM_COLOR[r.key]} />
-                  ))}
+                <Bar dataKey="value" fill={PRIMARY} radius={[0, 2, 2, 0]} maxBarSize={22}>
                   <LabelList dataKey="value" position="right" fontSize={11} className="fill-foreground" formatter={(v: unknown) => fmtInt(Number(v))} />
                 </Bar>
               </BarChart>
@@ -659,13 +656,13 @@ function BenchmarkTab() {
           <CardDescription>Búsqueda de «learning» en el corpus: con q pequeño aparecen coincidencias espurias que obligan a verificar.</CardDescription>
         </CardHeader>
         <CardContent>
-          <ChartContainer config={{ spurious_hits: { label: "Colisiones", color: "var(--series-3)" } }} className="aspect-auto h-56 w-full">
+          <ChartContainer config={{ spurious_hits: { label: "Colisiones", color: PRIMARY } }} className="aspect-auto h-56 w-full">
             <BarChart data={data.rabin_karp_collisions.map((r) => ({ ...r, q: String(r.modulus) }))} margin={{ left: -8, top: 16 }}>
               <CartesianGrid vertical={false} />
               <XAxis dataKey="q" tickLine={false} axisLine={false} fontSize={11} />
               <YAxis tickLine={false} axisLine={false} fontSize={11} />
               <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-              <Bar dataKey="spurious_hits" fill="var(--color-spurious_hits)" radius={[4, 4, 0, 0]} maxBarSize={24}>
+              <Bar dataKey="spurious_hits" fill="var(--color-spurious_hits)" radius={[2, 2, 0, 0]} maxBarSize={24}>
                 <LabelList dataKey="spurious_hits" position="top" fontSize={11} className="fill-foreground" />
               </Bar>
             </BarChart>
